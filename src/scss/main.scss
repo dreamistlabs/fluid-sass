@@ -1,0 +1,49 @@
+@charset 'utf-8';
+
+// ****************************************************
+// Fluid SCSS by Johnny Hu
+// A collection of Sass functions to help you build fluid websites
+//
+// ****************************************************
+
+@import 'fluid/index';
+
+$bp-mobile: 32rem;
+$bp-tablet: 76.8rem;
+$bp-laptop: 102.4rem;
+$bp-desktop: 128rem;
+
+$h1-fs-mobile: 3.2rem;
+$h1-fs-tablet: 4rem;
+$h1-fs-laptop: 4.8rem;
+$h1-fs-desktop: 6rem;
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: fs($h1-fs-mobile, $h1-fs-tablet, $bp-mobile, $bp-tablet);
+}
+
+@media screen and (min-width: toPx($bp-tablet)) {
+  h1 {
+    font-size: $h1-fs-tablet;
+    font-size: fs($h1-fs-tablet, $h1-fs-laptop, $bp-tablet, $bp-laptop);
+  }
+}
+@media screen and (min-width: toPx($bp-laptop)) {
+  h1 {
+    font-size: $h1-fs-laptop;
+    font-size: fs($h1-fs-laptop, $h1-fs-desktop, $bp-laptop, $bp-desktop);
+  }
+}
+@media screen and (min-width: toPx($bp-desktop)) {
+  h1 {
+    font-size: $h1-fs-desktop;
+  }
+}

@@ -1,0 +1,9 @@
+@import './to-px';
+
+// Calculate target length as a percentage of container.
+// @param {Number} $target - Number/length of target
+// @param {Number} $container - Number/length of container
+// @return {Number} - Number with % units
+@function percent($target, $container) {
+  @return (toPx($target) / toPx($container)) * 100%;
+}

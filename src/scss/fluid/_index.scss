@@ -1,0 +1,61 @@
+//
+//
+// calc(
+//   [minimum size] + ([maximum size] - [minimum size]) * (
+//     (100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])
+//   )
+// )
+
+// ****************************************************
+// VARIABLES
+// ****************************************************
+$default-rem: 10;
+$default-context: 100vw;
+
+// ****************************************************
+// FUNCTIONS
+// ****************************************************
+@import '../functions/strip';
+@import '../functions/percent';
+@import '../functions/to-px';
+
+@function calc-fluid-sizing(
+  $min-size,
+  $max-size,
+  $min-viewport,
+  $max-viewport,
+  $base-rem: $default-rem,
+  $context: $default-context
+) {
+  $norm-min-size: toPx($min-size);
+  $norm-max-size: toPx($max-size);
+  $norm-min-viewport: toPx($min-viewport);
+  $norm-max-viewport: toPx($max-viewport);
+
+  // diffs must have their units stripped
+  $size-diff: strip($norm-max-size - $norm-min-size);
+  $viewport-diff: strip($norm-max-viewport - $norm-min-viewport);
+
+  //units:  calc([px] + [none] * (([vw] - [vw]) / [none]))
+  @return calc(
+    #{$norm-min-size} + #{$size-diff} * ((#{$context} - #{$min-viewport}) / #{$viewport-diff})
+  );
+}
+
+@function fs(
+  $min-size,
+  $max-size,
+  $min-viewport,
+  $max-viewport,
+  $base-rem: $default-rem,
+  $context: $default-context
+) {
+  @return calc-fluid-sizing(
+    $min-size,
+    $max-size,
+    $min-viewport,
+    $max-viewport,
+    $base-rem,
+    $context
+  );
+}

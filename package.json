@@ -1,0 +1,29 @@
+{
+  "name": "fluid-sass",
+  "version": "0.0.1",
+  "description": "A collection of Sass functions to help you build fluid websites.",
+  "main": "demo/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-css": "node-sass-chokidar --include-path ./src/scss ./src/scss/main.scss ./public/css/style.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heyitsjhu/fluid-sass.git"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "fluid",
+    "helper"
+  ],
+  "author": "Johnny Hu <johnny@dreamistlabs.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heyitsjhu/fluid-sass/issues"
+  },
+  "homepage": "https://github.com/heyitsjhu/fluid-sass#readme",
+  "devDependencies": {
+    "node-sass-chokidar": "^1.3.4"
+  }
+}

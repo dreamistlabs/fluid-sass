@@ -1,0 +1,22 @@
+html {
+  font-size: 10px; }
+
+body {
+  font-size: 1rem; }
+
+h1 {
+  font-size: calc( 32px + 8 * ((100vw - 32rem) / 448)); }
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 4rem;
+    font-size: calc( 40px + 8 * ((100vw - 76.8rem) / 256)); } }
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 4.8rem;
+    font-size: calc( 48px + 12 * ((100vw - 102.4rem) / 256)); } }
+
+@media screen and (min-width: 1280px) {
+  h1 {
+    font-size: 6rem; } }

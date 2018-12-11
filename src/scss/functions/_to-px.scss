@@ -1,0 +1,16 @@
+// Convert a number/length to its relative pixels.
+// @param {Number} $number - Number to remove unit from
+// @param {Number} $base-rem - Multipler for rem units
+// @return {Number} - Number normalized with px units
+@function toPx($number, $base-rem: $default-rem) {
+  @if type-of($number) == 'number' {
+    @if unit($number) == 'px' {
+      @return $number;
+    } @else if unit($number) == 'rem' {
+      @return strip($number) * $base-rem + 0px;
+    } @else if unit($number) == 'em' {
+    } @else {
+      @return strip($number) + 0px;
+    }
+  }
+}
